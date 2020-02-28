@@ -1,4 +1,13 @@
 
+# NMDP Bioinformatics Base R Image
+
+This is a fork of the `rhub/r-minimal` code. It enables R/Java integration. 
+
+Build the image with:
+```
+docker build --build-arg R_ENABLE_JAVA=yes -t dockerhub.nmdp.org:8443/r-minimal:0.0.1 .
+```
+
 # Minimal Docker images for R
 
 ## What is R?

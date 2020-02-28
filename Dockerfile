@@ -7,6 +7,8 @@ ENV _R_SHLIB_STRIP_=true
 
 ARG R_VERSION=3.6.2
 
+ARG R_ENABLE_JAVA=no
+
 RUN apk update &&                                                        \
     apk add gcc musl-dev gfortran g++ zlib-dev bzip2-dev xz-dev pcre-dev \
     curl-dev make perl &&                                                \
@@ -22,7 +24,7 @@ RUN apk update &&                                                        \
 ##
     cd R-${R_VERSION} &&                                                 \
     CXXFLAGS=-D__MUSL__ ./configure --with-recommended-packages=no       \
-        --with-readline=no --with-x=no --enable-java=no                  \
+        --with-readline=no --with-x=no --enable-java=${R_ENABLE_JAVA}    \
         --disable-openmp &&                                              \
     make &&                                                              \
     make install &&                                                      \
